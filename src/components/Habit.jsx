@@ -14,15 +14,17 @@ const Habit = ({
 }) => {
   const handleCount = async () => {
     await axios
-      .put(`http://localhost:5500/habits/carrot/${id}`)
+      .put(`https://rabits-backend.onrender.com/habits/carrot/${id}`)
       .catch((error) => {
         console.log(error);
       });
 
     setLoading(true);
-    axios.post("http://localhost:5500/carrots", {}).catch((error) => {
-      console.log(error);
-    });
+    axios
+      .post("https://rabits-backend.onrender.com/carrots", {})
+      .catch((error) => {
+        console.log(error);
+      });
 
     setCarrots(carrots + 1);
 

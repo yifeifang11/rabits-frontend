@@ -12,7 +12,7 @@ const ShowHabit = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`http://localhost:5500/habits/${id}`)
+      .get(`https://rabits-backend.onrender.com/habits/${id}`)
       .then((response) => {
         setHabit(response.data);
         setLoading(false);

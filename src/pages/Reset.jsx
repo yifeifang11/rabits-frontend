@@ -10,7 +10,7 @@ const Reset = () => {
   const resetApp = () => {
     setLoading(true);
     axios
-      .delete("http://localhost:5500/carrots")
+      .delete("https://rabits-backend.onrender.com/carrots")
       .then((response) => {
         setLoading(false);
         navigate("/");

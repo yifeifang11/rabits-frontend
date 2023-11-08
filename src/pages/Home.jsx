@@ -13,7 +13,7 @@ const Home = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get("http://localhost:5500/habits")
+      .get("https://rabits-backend.onrender.com/habits")
       .then((response) => {
         setHabits(response.data.habits);
         setLoading(false);
@@ -23,7 +23,7 @@ const Home = () => {
         setLoading(false);
       });
     axios
-      .get("http://localhost:5500/carrots")
+      .get("https://rabits-backend.onrender.com/carrots")
       .then((response) => {
         setCarrots(response.data.count);
         setLoading(false);
