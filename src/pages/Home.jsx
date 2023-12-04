@@ -13,7 +13,7 @@ const Home = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .put("http://localhost:5500/habits/user", {
+      .put("https://rabits-back.vercel.app/habits/user", {
         userID: window.localStorage.getItem("userID"),
       })
       .then((response) => {
@@ -25,7 +25,7 @@ const Home = () => {
         setLoading(false);
       });
     axios
-      .put("http://localhost:5500/carrots", {
+      .put("https://rabits-back.vercel.app/carrots", {
         userID: window.localStorage.getItem("userID"),
       })
       .then(async (response) => {

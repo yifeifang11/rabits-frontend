@@ -15,7 +15,7 @@ const EditHabit = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`http://localhost:5500/habits/${id}`)
+      .get(`https://rabits-back.vercel.app/habits/${id}`)
       .then((response) => {
         setName(response.data.name);
         setDescription(response.data.description);
@@ -40,7 +40,7 @@ const EditHabit = () => {
     };
     setLoading(true);
     axios
-      .put(`http://localhost:5500/habits/${id}`, data)
+      .put(`https://rabits-back.vercel.app/habits/${id}`, data)
       .then(() => {
         setLoading(false);
         navigate("/");
