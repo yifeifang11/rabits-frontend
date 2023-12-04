@@ -14,14 +14,14 @@ const Habit = ({
 }) => {
   const handleCount = async () => {
     await axios
-      .put(`https://rabits-back.vercel.app/habits/count/${id}`)
+      .put(`https://rabits-backend.onrender.com/habits/count/${id}`)
       .catch((error) => {
         console.log(error);
       });
 
     setLoading(true);
     await axios
-      .post("https://rabits-back.vercel.app/carrots", {
+      .post("https://rabits-backend.onrender.com/carrots", {
         userID: window.localStorage.getItem("userID"),
       })
       .catch((error) => {

@@ -13,7 +13,7 @@ const Home = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .put("https://rabits-back.vercel.app/habits/user", {
+      .put("https://rabits-backend.onrender.com/habits/user", {
         userID: window.localStorage.getItem("userID"),
       })
       .then((response) => {
@@ -25,7 +25,7 @@ const Home = () => {
         setLoading(false);
       });
     axios
-      .put("https://rabits-back.vercel.app/carrots", {
+      .put("https://rabits-backend.onrender.com/carrots", {
         userID: window.localStorage.getItem("userID"),
       })
       .then(async (response) => {
