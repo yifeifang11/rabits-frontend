@@ -15,7 +15,7 @@ const EditHabit = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`https://rabits-backend.onrender.com/habits/${id}`)
+      .get(`http://localhost:5500/habits/${id}`)
       .then((response) => {
         setName(response.data.name);
         setDescription(response.data.description);
@@ -85,7 +85,7 @@ const EditHabit = () => {
 
         <input
           type="submit"
-          value="Submit"
+          value="Save"
           className="border border-1 px-4 py-2 rounded-md mt-4"
         />
       </form>

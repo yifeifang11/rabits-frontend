@@ -9,8 +9,9 @@ const Reset = () => {
 
   const resetApp = () => {
     setLoading(true);
+    const userID = window.localStorage.getItem("userID");
     axios
-      .delete("https://rabits-backend.onrender.com/carrots")
+      .delete(`http://localhost:5500/carrots/${userID}`)
       .then((response) => {
         setLoading(false);
         navigate("/");

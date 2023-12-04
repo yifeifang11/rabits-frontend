@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import Spinner from "../components/Spinner";
 import Habit from "../components/Habit";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import LevelBar from "../components/LevelBar";
+import Logout from "../components/Logout";
 
 const Home = () => {
   const [habits, setHabits] = useState([]);
@@ -13,7 +13,9 @@ const Home = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get("https://rabits-backend.onrender.com/habits")
+      .put("http://localhost:5500/habits/user", {
+        userID: window.localStorage.getItem("userID"),
+      })
       .then((response) => {
         setHabits(response.data.habits);
         setLoading(false);
@@ -23,9 +25,11 @@ const Home = () => {
         setLoading(false);
       });
     axios
-      .get("https://rabits-backend.onrender.com/carrots")
-      .then((response) => {
-        setCarrots(response.data.count);
+      .put("http://localhost:5500/carrots", {
+        userID: window.localStorage.getItem("userID"),
+      })
+      .then(async (response) => {
+        await setCarrots(response.data.count);
         setLoading(false);
       })
       .catch((error) => {
@@ -47,27 +51,24 @@ const Home = () => {
                 </p>
               </div>
             </Link>
-            {loading ? (
-              <Spinner />
-            ) : (
-              <div>
-                {habits.map((habit) => (
-                  <div className="m-2">
-                    <Habit
-                      name={habit.name}
-                      description={habit.description}
-                      count={habit.count}
-                      goal={habit.goal}
-                      id={habit._id}
-                      loading={loading}
-                      setLoading={setLoading}
-                      carrots={carrots}
-                      setCarrots={setCarrots}
-                    />
-                  </div>
-                ))}
-              </div>
-            )}
+
+            <div>
+              {habits.map((habit) => (
+                <div className="m-2">
+                  <Habit
+                    name={habit.name}
+                    description={habit.description}
+                    count={habit.count}
+                    goal={habit.goal}
+                    id={habit._id}
+                    loading={loading}
+                    setLoading={setLoading}
+                    carrots={carrots}
+                    setCarrots={setCarrots}
+                  />
+                </div>
+              ))}
+            </div>
           </div>
           <div className="flex-1">
             <p className="text-center">🥕: {carrots}</p>
@@ -81,6 +82,7 @@ const Home = () => {
             </Link>
           </div>
         </div>
+        <Logout />
         <p>
           Check out the code{" "}
           <a href="https://github.com/yifeifang11/rabits" className="underline">

@@ -13,15 +13,17 @@ const AddHabit = () => {
   const saveHabit = (e) => {
     e.preventDefault();
     console.log("chunugs!");
+    const userID = window.localStorage.getItem("userID");
     const data = {
       name: name,
       description: description,
       count: 0,
       goal: goal,
+      user: userID,
     };
     setLoading(true);
     axios
-      .post("https://rabits-backend.onrender.com/habits", data)
+      .post("http://localhost:5500/habits", data)
       .then(() => {
         setLoading(false);
         navigate("/");

@@ -14,14 +14,16 @@ const Habit = ({
 }) => {
   const handleCount = async () => {
     await axios
-      .put(`https://rabits-backend.onrender.com/habits/carrot/${id}`)
+      .put(`http://localhost:5500/habits/count/${id}`)
       .catch((error) => {
         console.log(error);
       });
 
     setLoading(true);
-    axios
-      .post("https://rabits-backend.onrender.com/carrots", {})
+    await axios
+      .post("http://localhost:5500/carrots", {
+        userID: window.localStorage.getItem("userID"),
+      })
       .catch((error) => {
         console.log(error);
       });
