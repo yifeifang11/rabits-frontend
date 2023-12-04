@@ -9,7 +9,7 @@ const Logout = () => {
   const logout = () => {
     setCookies("access_token", "");
     window.localStorage.clear();
-    navigate("/auth");
+    navigate("/");
   };
   return (
     <div className="border border-1 px-4 py-2 rounded-md text-center my-2">
