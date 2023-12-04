@@ -11,7 +11,7 @@ const DeleteHabit = () => {
   const deleteHabit = () => {
     setLoading(true);
     axios
-      .delete(`https://rabits-back.vercel.app/habits/${id}`)
+      .delete(`http://localhost:5500/habits/${id}`)
       .then((response) => {
         setLoading(false);
         navigate("/");

@@ -23,7 +23,7 @@ const AddHabit = () => {
     };
     setLoading(true);
     axios
-      .post("https://rabits-back.vercel.app/habits", data)
+      .post("http://localhost:5500/habits", data)
       .then(() => {
         setLoading(false);
         navigate("/");
