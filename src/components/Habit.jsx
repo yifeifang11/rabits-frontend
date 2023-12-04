@@ -14,14 +14,14 @@ const Habit = ({
 }) => {
   const handleCount = async () => {
     await axios
-      .put(`http://localhost:5500/habits/count/${id}`)
+      .put(`https://rabits-back.vercel.app/habits/count/${id}`)
       .catch((error) => {
         console.log(error);
       });
 
     setLoading(true);
     await axios
-      .post("http://localhost:5500/carrots", {
+      .post("https://rabits-back.vercel.app/carrots", {
         userID: window.localStorage.getItem("userID"),
       })
       .catch((error) => {

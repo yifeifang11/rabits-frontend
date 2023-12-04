@@ -11,7 +11,7 @@ const Reset = () => {
     setLoading(true);
     const userID = window.localStorage.getItem("userID");
     axios
-      .delete(`http://localhost:5500/carrots/${userID}`)
+      .delete(`https://rabits-back.vercel.app/carrots/${userID}`)
       .then((response) => {
         setLoading(false);
         navigate("/");

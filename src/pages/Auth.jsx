@@ -31,7 +31,7 @@ const Login = () => {
     event.preventDefault();
 
     try {
-      const result = await axios.post("http://localhost:5500/auth/login", {
+      const result = await axios.post("https://rabits-back.vercel.app/login", {
         username: username,
         password: password,
       });
@@ -91,7 +91,7 @@ const Register = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post("http://localhost:5500/auth/register", {
+      await axios.post("https://rabits-back.vercel.app/auth/register", {
         username,
         password,
       });
