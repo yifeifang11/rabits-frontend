@@ -11,12 +11,12 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/habits/create" element={<AddHabit />} />
         <Route path="/habits/edit/:id" element={<EditHabit />} />
         <Route path="/habits/delete/:id" element={<DeleteHabit />} />
         <Route path="/carrots/reset" element={<Reset />} />
-        <Route path="/auth" element={<Auth />} />
+        <Route path="/" element={<Auth />} />
       </Routes>
     </BrowserRouter>
   );
