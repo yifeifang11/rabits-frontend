@@ -14,7 +14,7 @@ const DeleteHabit = () => {
       .delete(`https://rabits-backend.onrender.com/habits/${id}`)
       .then((response) => {
         setLoading(false);
-        navigate("/auth");
+        navigate("/home");
       })
       .catch((error) => {
         setLoading(false);

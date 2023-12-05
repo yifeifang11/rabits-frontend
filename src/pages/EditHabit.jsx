@@ -43,7 +43,7 @@ const EditHabit = () => {
       .put(`https://rabits-backend.onrender.com/habits/${id}`, data)
       .then(() => {
         setLoading(false);
-        navigate("/auth");
+        navigate("/home");
       })
       .catch((error) => {
         setLoading(false);

@@ -14,7 +14,7 @@ const Reset = () => {
       .delete(`https://rabits-backend.onrender.com/carrots/${userID}`)
       .then((response) => {
         setLoading(false);
-        navigate("/auth");
+        navigate("/home");
       })
       .catch((error) => {
         setLoading(false);
