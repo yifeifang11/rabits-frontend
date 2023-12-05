@@ -26,7 +26,7 @@ const AddHabit = () => {
       .post("https://rabits-backend.onrender.com/habits", data)
       .then(() => {
         setLoading(false);
-        navigate("/");
+        navigate("/home");
       })
       .catch((error) => {
         setLoading(false);
